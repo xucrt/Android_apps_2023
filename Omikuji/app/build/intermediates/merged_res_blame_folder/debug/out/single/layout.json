@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "jp.wings.nikkeibp.omikuji.app-mergeDebugResources-27:/layout/main.xml",
+        "source": "jp.wings.nikkeibp.omikuji.app-main-30:/layout/main.xml"
+    },
+    {
+        "merged": "C:\\Users\\xuchu\\.gradle\\daemon\\8.0\\jp.wings.nikkeibp.omikuji.app-mergeDebugResources-27:\\layout\\main.xml",
+        "source": "C:\\Users\\xuchu\\.gradle\\daemon\\8.0\\jp.wings.nikkeibp.omikuji.app-main-30:\\layout\\main.xml"
+    }
+]

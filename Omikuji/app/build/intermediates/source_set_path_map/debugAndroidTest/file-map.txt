@@ -1,0 +1,6 @@
+jp.wings.nikkeibp.omikuji.test.app-core-1.5.0-0 C:\Users\xuchu\.gradle\caches\transforms-3\b32c7386a2aef6715cb5bd71e2ff357e\transformed\core-1.5.0\res
+jp.wings.nikkeibp.omikuji.test.app-annotation-experimental-1.3.0-1 C:\Users\xuchu\.gradle\caches\transforms-3\c5ec658faf2b98f812e539eacbdac157\transformed\annotation-experimental-1.3.0\res
+jp.wings.nikkeibp.omikuji.test.app-androidTest-2 E:\PaPaFolders\Android\AndroidStudioProjects\Omikuji\app\build\generated\res\resValues\androidTest\debug
+jp.wings.nikkeibp.omikuji.test.app-mergeDebugAndroidTestResources-3 E:\PaPaFolders\Android\AndroidStudioProjects\Omikuji\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+jp.wings.nikkeibp.omikuji.test.app-mergeDebugAndroidTestResources-4 E:\PaPaFolders\Android\AndroidStudioProjects\Omikuji\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+jp.wings.nikkeibp.omikuji.test.app-merged_res-5 E:\PaPaFolders\Android\AndroidStudioProjects\Omikuji\app\build\intermediates\merged_res\debugAndroidTest

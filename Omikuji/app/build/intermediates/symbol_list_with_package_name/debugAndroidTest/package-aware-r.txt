@@ -1,0 +1,3 @@
+jp.wings.nikkeibp.omikuji.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme
