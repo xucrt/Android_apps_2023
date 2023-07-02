@@ -1,4 +1,5 @@
 <resources>
     <!--P62, アクションバーを表示させるためにthemes.xmlを編集した。-->
     <string name="app_name">おみくじ</string>
+    <string name="bt_action">うらなう</string>
 </resources>
