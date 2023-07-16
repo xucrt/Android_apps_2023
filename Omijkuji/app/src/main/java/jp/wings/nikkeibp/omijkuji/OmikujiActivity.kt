@@ -1,23 +1,22 @@
 package jp.wings.nikkeibp.omijkuji
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationSet
-import android.view.animation.RotateAnimation
-import android.view.animation.TranslateAnimation
-import jp.wings.nikkeibp.omijkuji.databinding.MainBinding
+import androidx.appcompat.app.AppCompatActivity
 import jp.wings.nikkeibp.omijkuji.databinding.OmikujiBinding
-import java.util.Random
 
 class OmikujiActivity : AppCompatActivity() {
+
+    val omikujiBox = OmikujiBox() //P152
+
     lateinit var binding: OmikujiBinding //P116
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = OmikujiBinding.inflate(layoutInflater) //P117
         //val binding = MainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        omikujiBox.omikujiView = binding.imageView //P152
 
         /*
         //文字表示
@@ -58,7 +57,10 @@ class OmikujiActivity : AppCompatActivity() {
 
     //P130
     fun onButtonClick(v: View){
-        //P133
+
+        omikujiBox.shake() //P152
+
+        /*P133
         val translate = TranslateAnimation(0f,0f,0f,-200f)
         translate.repeatMode = Animation.REVERSE
         translate.repeatCount = 5
@@ -72,6 +74,7 @@ class OmikujiActivity : AppCompatActivity() {
         set.addAnimation(translate)
 
         binding.imageView.startAnimation(set)
+        */
         //binding.imageView.setImageResource(R.drawable.result1)
     }
 }
