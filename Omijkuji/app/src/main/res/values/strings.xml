@@ -2,4 +2,14 @@
     <!--P62, アクションバーを表示させるためにthemes.xmlを編集した。-->
     <string name="app_name">おみくじ</string>
     <string name="bt_action">うらなう</string>
+    <string name="contents1">良縁が持ち込まれるでしょう。</string>
+    <string name="contents2">金運１倍</string>
+    <string name="contents3">金運３倍</string>
+    <string name="contents4">気力２倍</string>
+    <string name="contents5">気力５倍</string>
+    <string name="contents6">信じられないほどの何かが起きる鴨</string>
+    <string name="contents7">考えるのが面倒くさい時に寝る</string>
+    <string name="contents8">電車が遅れないでしょう</string>
+    <string name="contents9">これ以上たまごの値段が上がらないように</string>
+    <string name="contents10">こんな適当な占いを信じるな！！努力せ！！</string>
 </resources>
