@@ -1,12 +1,54 @@
 package jp.wings.nikkeibp.omijkuji
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import jp.wings.nikkeibp.omijkuji.databinding.FortuneBinding
 import jp.wings.nikkeibp.omijkuji.databinding.OmikujiBinding
 
 class OmikujiActivity : AppCompatActivity() {
+
+    //p188
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    /*
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item1 -> {
+                Toast.makeText(this, "設定选项被选择了", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.item2 -> {
+                Toast.makeText(this, "おみくじアプリについて选项被选择了", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.item3 -> {
+                Toast.makeText(this, "許伝授の初アプリ选项被选择了", Toast.LENGTH_LONG).show()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    */
+
+    //P191
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+       //val toast = Toast.makeText(this@OmikujiActivity, "ばぶばぶばぶばぶばぶばぶばぶばぶ", Toast.LENGTH_LONG)
+       val toast = Toast.makeText(this, item.title, Toast.LENGTH_LONG)
+       toast.show()
+
+        //Toast.makeText(this, item.title, Toast.LENGTH_LONG).show()
+        //return true
+       return super.onOptionsItemSelected(item)
+    }
+
 
     //P169 おみくじ棚の配列
     val omikujiShelf = Array<OmikujiParts>(20)
@@ -118,4 +160,14 @@ class OmikujiActivity : AppCompatActivity() {
         fortuneBinding.imageView2.setImageResource(op.drawID)
         fortuneBinding.textView.setText(op.fortuneID)
     }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if (event?.action == MotionEvent.ACTION_DOWN){
+            if(omikujiNumber < 0 && omikujiBox.finish){
+                drawResult()
+            }
+        }
+        return super.onTouchEvent(event)
+    }
+
 }
