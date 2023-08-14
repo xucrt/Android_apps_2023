@@ -1,5 +1,6 @@
 package jp.wings.nikkeibp.omijkuji
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -41,12 +42,21 @@ class OmikujiActivity : AppCompatActivity() {
     //P191
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
        //val toast = Toast.makeText(this@OmikujiActivity, "ばぶばぶばぶばぶばぶばぶばぶばぶ", Toast.LENGTH_LONG)
-       val toast = Toast.makeText(this, item.title, Toast.LENGTH_LONG)
-       toast.show()
+        // Toastメッセージが表示されなかったテスト↑でした。結局ハードウェアシミュレーターに問題があった、エラーが出ていた携帯のVMを削除して作り直したら、Toastメッセージが表示できた。
+
+        /* P221
+        val toast = Toast.makeText(this, item.title, Toast.LENGTH_LONG)
+        toast.show()
+        */
 
         //Toast.makeText(this, item.title, Toast.LENGTH_LONG).show()
         //return true
-       return super.onOptionsItemSelected(item)
+
+        if (item.itemId == R.id.item1){
+            val intent = Intent(this, OmikujiPreferenceActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
