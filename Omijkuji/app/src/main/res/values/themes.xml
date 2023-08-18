@@ -11,4 +11,5 @@
     </style>
 
     <style name="Theme.Omijkuji" parent="Base.Theme.Omijkuji" />
+    <style name="AboutTheme" parent="Theme.AppCompat.Dialog"/>
 </resources>

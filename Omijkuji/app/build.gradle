@@ -14,8 +14,8 @@ android {
         applicationId "jp.wings.nikkeibp.omijkuji"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        //versionCode 1 //P219
+        //versionName "1.0" //P219
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

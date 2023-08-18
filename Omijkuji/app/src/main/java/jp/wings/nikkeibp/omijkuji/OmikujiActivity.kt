@@ -2,6 +2,7 @@ package jp.wings.nikkeibp.omijkuji
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -20,24 +21,24 @@ class OmikujiActivity : AppCompatActivity() {
     }
 
     /*
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item1 -> {
-                Toast.makeText(this, "設定选项被选择了", Toast.LENGTH_LONG).show()
-                return true
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.item1 -> {
+                    Toast.makeText(this, "設定选项被选择了", Toast.LENGTH_LONG).show()
+                    return true
+                }
+                R.id.item2 -> {
+                    Toast.makeText(this, "おみくじアプリについて选项被选择了", Toast.LENGTH_LONG).show()
+                    return true
+                }
+                R.id.item3 -> {
+                    Toast.makeText(this, "許伝授の初アプリ选项被选择了", Toast.LENGTH_LONG).show()
+                    return true
+                }
             }
-            R.id.item2 -> {
-                Toast.makeText(this, "おみくじアプリについて选项被选择了", Toast.LENGTH_LONG).show()
-                return true
-            }
-            R.id.item3 -> {
-                Toast.makeText(this, "許伝授の初アプリ选项被选择了", Toast.LENGTH_LONG).show()
-                return true
-            }
+            return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
-    }
-    */
+        */
 
     //P191
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -54,6 +55,10 @@ class OmikujiActivity : AppCompatActivity() {
 
         if (item.itemId == R.id.item1){
             val intent = Intent(this, OmikujiPreferenceActivity::class.java)
+            startActivity(intent)
+        }
+        else {
+            val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
