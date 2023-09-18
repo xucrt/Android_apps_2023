@@ -1,5 +1,6 @@
 package jp.wings.nikkeibp.omijkuji
 
+import android.hardware.SensorEvent
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationSet
@@ -13,6 +14,10 @@ class OmikujiBox(): Animation.AnimationListener {
     val number : Int = -1 //くじ番号；プロパティの宣言；プロパティは クラス 内 のグロバール変数である。
     */
 
+    //p252
+    var beforeTime = 0L
+    var beforeValue = 0F
+
     //P147
     lateinit var omikujiView: ImageView
     var finish = false //箱から出たか？
@@ -23,6 +28,28 @@ class OmikujiBox(): Animation.AnimationListener {
             val rnd = Random()
             return rnd.nextInt(20)
         }
+
+    //p252-253
+    fun chkShake(event: SensorEvent?): Boolean{
+
+        val nowtime = System.currentTimeMillis()
+        val differtime: Long = nowtime - beforeTime
+        val nowvalue: Float = (event?.values?.get(0) ?:0F) + (event?.values?.get(1) ?: 0F)
+
+        if(1500 < differtime){
+
+            //前回の値との差からスピードを計算
+            val speed = Math.abs(nowvalue - beforeValue) / differtime * 10000
+            beforeTime = nowtime
+            beforeValue = nowvalue
+
+            //50を超えるスピードでシェイクしたとみなす
+            if(50 < speed){
+                return true
+            }
+        }
+        return false
+    }
 
     //P150
     fun shake(){

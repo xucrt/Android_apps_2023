@@ -1,6 +1,11 @@
 package jp.wings.nikkeibp.omijkuji
 
+import android.content.Context
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
@@ -12,7 +17,10 @@ import androidx.appcompat.app.AppCompatActivity
 import jp.wings.nikkeibp.omijkuji.databinding.FortuneBinding
 import jp.wings.nikkeibp.omijkuji.databinding.OmikujiBinding
 
-class OmikujiActivity : AppCompatActivity() {
+class OmikujiActivity : AppCompatActivity(), SensorEventListener {
+
+    //p242
+    lateinit var manager: SensorManager
 
     //p188
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -81,6 +89,9 @@ class OmikujiActivity : AppCompatActivity() {
         //val binding = MainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //p243
+        manager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
         omikujiBox.omikujiView = binding.imageView //P152
 
         //P170 おみくじ棚の準備
@@ -135,6 +146,19 @@ class OmikujiActivity : AppCompatActivity() {
         */
     }
 
+    //p244
+    override fun onResume() {
+        super.onResume()
+
+        val sensor = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        manager.registerListener(this, sensor,SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        manager.unregisterListener(this)
+    }
+
     //P130
     fun onButtonClick(v: View){
 
@@ -183,6 +207,26 @@ class OmikujiActivity : AppCompatActivity() {
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    //p246
+    override fun onSensorChanged(event: SensorEvent?) {
+
+        //p253
+        if (omikujiBox.chkShake(event)){
+            if (omikujiNumber < 0){
+                omikujiBox.shake()
+            }
+        }
+
+        val value = event?.values?.get(0)
+        if (value != null && 10 < value){
+            Toast.makeText(this, "加速度：${value}", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        TODO("Not yet implemented")
     }
 
 }
