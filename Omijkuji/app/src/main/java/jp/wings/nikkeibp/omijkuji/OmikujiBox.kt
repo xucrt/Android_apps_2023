@@ -1,11 +1,13 @@
 package jp.wings.nikkeibp.omijkuji
 
 import android.hardware.SensorEvent
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationSet
 import android.view.animation.RotateAnimation
 import android.view.animation.TranslateAnimation
+import android.widget.Button
 import android.widget.ImageView
 import java.util.Random
 
@@ -18,8 +20,11 @@ class OmikujiBox(): Animation.AnimationListener {
     var beforeTime = 0L
     var beforeValue = 0F
 
+    //p267
+    lateinit var omikujiButton: Button
     //P147
     lateinit var omikujiView: ImageView
+
     var finish = false //箱から出たか？
 
     //P100 乱数を返すようにアクセサー(getter)を使った。
@@ -76,6 +81,8 @@ class OmikujiBox(): Animation.AnimationListener {
 
     override fun onAnimationEnd(animation: Animation?) {
         omikujiView.setImageResource(R.drawable.omikuji2)
+        omikujiButton.setText(R.string.bt_result)
+        omikujiButton.visibility = View.VISIBLE
         finish = true
     }
 

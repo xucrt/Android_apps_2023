@@ -2,6 +2,7 @@
     <!--P62, アクションバーを表示させるためにthemes.xmlを編集した。-->
     <string name="app_name">おみくじ</string>
     <string name="bt_action">うらなう</string>
+    <string name="bt_result">運勢をみる</string>
     <string name="contents1">良縁が持ち込まれるでしょう。</string>
     <string name="contents2">金運１倍</string>
     <string name="contents3">金運３倍</string>

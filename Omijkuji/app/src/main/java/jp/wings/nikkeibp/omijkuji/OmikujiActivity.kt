@@ -93,6 +93,7 @@ class OmikujiActivity : AppCompatActivity(), SensorEventListener {
         manager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
         omikujiBox.omikujiView = binding.imageView //P152
+        omikujiBox.omikujiButton = binding.button //p268
 
         //P170 おみくじ棚の準備
         omikujiShelf[0].drawID = R.drawable.result1
@@ -108,6 +109,7 @@ class OmikujiActivity : AppCompatActivity(), SensorEventListener {
         omikujiShelf[6].fortuneID = R.string.contents7
         omikujiShelf[7].fortuneID = R.string.contents8
         omikujiShelf[8].fortuneID = R.string.contents10
+        omikujiShelf[9].fortuneID = R.string.contents1
 
         /*
         //文字表示
@@ -161,6 +163,10 @@ class OmikujiActivity : AppCompatActivity(), SensorEventListener {
 
     //P130
     fun onButtonClick(v: View){
+        //p269
+        if(omikujiNumber < 0 && omikujiBox.finish){
+            drawResult()
+        }
 
         omikujiBox.shake() //P152
 
